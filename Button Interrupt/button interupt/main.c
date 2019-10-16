@@ -1,4 +1,11 @@
-
+/* Author : Nicholas Riggins
+ * Date: October 2019
+ * Button Interrupt lab3
+ * board MSP430G2553
+ * Will blink led 1.0 but instead of running it on a loop
+ * it will wait till the button is pressed to act
+ *
+ */
 #include <msp430.h>
 
 int main(void)
