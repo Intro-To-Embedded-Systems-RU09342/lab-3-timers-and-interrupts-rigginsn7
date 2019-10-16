@@ -1,4 +1,11 @@
-
+/* Author : Nicholas Riggins
+ * Date: October 2019
+ * Timer A blink lab3
+ * board MSP430G2553
+ * Will blink led 1.0 and 1.6 but instead of using delay cycles
+ * you utilize the processors timer
+ *
+ */
 
 #include <msp430.h>
 
@@ -20,9 +27,9 @@ int main(void)
       TA1CCR0 = 250000/ 10; // 250000 / 10 = 25000, (10^6 [Hz] / 4) / (25000) = 10Hz
 
 
-  __enable_interrupt();
+  __enable_interrupt(); // enables the interupts
 
-  __bis_SR_register(LPM0 + GIE);       //
+  __bis_SR_register(LPM0 + GIE);
 }
 
 
@@ -30,7 +37,7 @@ int main(void)
 __interrupt void TIMER_A0(void)
 
 {
-  P1OUT ^= BIT0;                     // P1.0 and P1.6 = toggle
+  P1OUT ^= BIT0;                     // P1.0 toggle
 
 }
 
@@ -38,6 +45,6 @@ __interrupt void TIMER_A0(void)
 __interrupt void TIMER_A1(void)
 
 {
-  P1OUT ^= BIT6;                     // P1.0 and P1.6 = toggle
+  P1OUT ^= BIT6;                     // P1.6 toggle
 }
 
